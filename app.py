@@ -45,5 +45,5 @@ def calc():
 
 
 if __name__ == '__main__':
-    print("Running...")
+    print("Still running...")
     app.run()
