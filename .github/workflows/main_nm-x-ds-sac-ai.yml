@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'NM-X-DS-SAC-AI'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B262881DC0814C26853F8E917F2CE933 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FA9ED16FCC7E4EE7BA6A6E0238A1BEC9 }}
