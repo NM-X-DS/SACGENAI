@@ -40,7 +40,7 @@ def calc():
             response_json = {"data":"data was empty"}
             return response_json
     else:
-        response_json = {"data":"request still without data"}
+        response_json = {"data":"request again without data"}
         return response_json
 
 
