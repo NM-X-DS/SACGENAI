@@ -18,14 +18,30 @@ def favicon():
 
 @app.route('/hello', methods=['POST'])
 def hello():
-   name = request.form.get('name')
+    name = request.form.get('name')
+    if name:
+        print('Request for hello page received with name=%s' % name)
+        return render_template('hello.html', name = name)
+    else:
+        print('Request for hello page received with no name or blank name -- redirecting')
+        return redirect(url_for('index'))
 
-   if name:
-       print('Request for hello page received with name=%s' % name)
-       return render_template('hello.html', name = name)
-   else:
-       print('Request for hello page received with no name or blank name -- redirecting')
-       return redirect(url_for('index'))
+@app.route('/calc', methods=['POST'])
+def calc():
+    if request.data.decode():
+        request_json = request.get_json()
+        if "data" in request_json:
+            data = request_json["data"]
+            print('Request for calc page received with data=%s' % data)
+            response_json = {"data":str(data)+" modified"}
+            return response_json
+        else:
+            print('Request for calc page received with no name or blank name -- redirecting')
+            response_json = {"data":"data was empty"}
+            return response_json
+    else:
+        response_json = {"data":"request without data"}
+        return response_json
 
 
 if __name__ == '__main__':
